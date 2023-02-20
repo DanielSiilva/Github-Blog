@@ -9,13 +9,11 @@ export const ProfileContainer = styled.div`
     display: flex;
 
 
-    width: 864px;
-    height: 212px;
+    width: 54rem;
+    height: 13.25rem;
     margin-top: -70px;
 
-    /* Base/Profile */
-
-    background: #0B1B2B;
+    background: ${props => props.theme['base-profile']};
     box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 

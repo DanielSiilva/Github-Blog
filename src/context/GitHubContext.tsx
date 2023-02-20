@@ -10,28 +10,28 @@ import {
   
 
   
-interface OrderContextType {
+interface GitHubContextType {
 
 }
   
-export const OrderContext = createContext({} as OrderContextType)
+export const GitHubContext = createContext({} as GitHubContextType)
   
 interface OrderContextProviderProps {
     children: ReactNode
 }
   
-  export function OrderContextProvider({ children }: OrderContextProviderProps) {
+  export function GitHubContextProvider({ children }: OrderContextProviderProps) {
    
   
     
     return (
-      <OrderContext.Provider
+      <GitHubContext.Provider
         value={{
          
         }}
       >
         {children}
-      </OrderContext.Provider>
+      </GitHubContext.Provider>
     )
   }
   

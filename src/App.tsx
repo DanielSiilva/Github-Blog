@@ -4,7 +4,7 @@ import { Router } from './Router/Routes'
 import { GlobalStyle } from './styles/global'
 import { defaultTheme } from './styles/themes/default'
 
-import {OrderContextProvider} from './context/MainContext'
+import {GitHubContextProvider } from './context/GitHubContext'
 
 export function App (){
 
@@ -12,9 +12,9 @@ export function App (){
   return(
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
-        <OrderContextProvider>
+        <GitHubContextProvider>
           <Router />
-        </OrderContextProvider>
+        </GitHubContextProvider>
         <GlobalStyle/>
       </BrowserRouter>
     </ThemeProvider>
