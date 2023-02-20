@@ -1,14 +1,23 @@
-import { ThemeProvider } from "styled-components";
-import { Header } from "./components/Header";
+import {BrowserRouter} from 'react-router-dom'
+import {ThemeProvider } from 'styled-components'
+import { Router } from './Router/Routes'
+import { GlobalStyle } from './styles/global'
+import { defaultTheme } from './styles/themes/default'
 
-import { GlobalStyle } from "./styles/global";
-import { defaultTheme } from "./styles/themes/default";
+import {OrderContextProvider} from './context/MainContext'
 
-export function App() {
-  return (
+export function App (){
+
+
+  return(
     <ThemeProvider theme={defaultTheme}>
-      <GlobalStyle />
-      <Header />
+      <BrowserRouter>
+        <OrderContextProvider>
+          <Router />
+        </OrderContextProvider>
+        <GlobalStyle/>
+      </BrowserRouter>
     </ThemeProvider>
+    
   )
 }
