@@ -1,8 +1,10 @@
+import { CardIssues } from "./components/CardIssues";
 import { InputIssues } from "./components/InputIssues";
 import { Profile } from "./components/Profile";
 
 import {
-    HomeContainer
+    HomeContainer, 
+    CardContainer
 } from './styles'
 
 
@@ -12,11 +14,17 @@ export function Home (){
     return (
         <HomeContainer>
             <Profile />
-
+            
             <InputIssues />
-            <div>
-                <h1> Conteudo</h1>
-            </div>
+
+
+            <CardContainer>
+                <CardIssues/>
+                <CardIssues/>
+
+                <CardIssues/>
+                <CardIssues/>
+            </CardContainer>
         </HomeContainer>
     )
 }
