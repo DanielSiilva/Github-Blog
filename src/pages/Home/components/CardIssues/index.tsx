@@ -1,3 +1,5 @@
+
+import ReactMarkdown from "react-markdown";
 import { 
     CardContainer,
     Title,
@@ -5,24 +7,38 @@ import {
     Content
 } from "./styles";
 
+interface Issue {
+    title: string
+    body: string
+    created_at: string
+    html_url: string
+    number: string
+    comments: string
+    login: string
+}
+
+interface IssueProps {
+    issue: Issue
+}
 
 
-export function CardIssues (){
-
+export function CardIssues ({issue}: IssueProps){
+    
         
   return(
     <CardContainer>
         <TitleContainer>
             <Title>
-                <h1> JavaScript data types and data structures</h1>
+                <h1> {issue.title}</h1>
 
                 <span> Há 1 dia</span>
             </Title>
 
             <Content>
                 <p>
-                    Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in... 
+                    <ReactMarkdown children={issue.body}/>
                 </p>
+                
             </Content>
 
         </TitleContainer>

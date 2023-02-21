@@ -19,22 +19,20 @@ export const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 
 `
 
 export const Title = styled.div`
     display: flex;
     gap: 1rem;
+    align-items: center;
     justify-content: space-between;
 
+    width: 100%;
 
     h1{
-        height: 64px;
-        left: 32px;
-        right: 101px;
-        top: 32px;
-       
+      
         font-family: 'Nunito';
         font-style: normal;
         font-weight: 700;
@@ -46,11 +44,6 @@ export const Title = styled.div`
 
     span{
     
-        width: 53px;
-        height: 22px;
-        right: 32px;
-        top: 37px;
-
         font-family: 'Nunito';
         font-style: normal;
         font-weight: 400;
@@ -64,16 +57,19 @@ export const Title = styled.div`
 `
 
 export const Content = styled.div`
-    left: 32px;
-    right: 32px;
-    top: 116px;
-    bottom: 32px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0px;
 
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 160%;
+
+    white-space: pre-wrap;
+    overflow: hidden;
     
     color: ${props => props.theme['base-text']};
 
