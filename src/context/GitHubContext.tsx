@@ -34,7 +34,8 @@ interface Issue {
 interface GitHubContextType {
   profile: Profile,
   issue: Issue | undefined,
-  issues: Issue[]
+  issues: Issue[],
+  fetchIssuesId: (id: number) => Promise<void>
   
 }
   
@@ -51,7 +52,7 @@ export function GitHubContextProvider({ children }: OrderContextProviderProps) {
    const [issue, setIssue] = useState<Issue | undefined>(undefined)
    const [issues, setIssues] = useState<Issue[]>([])
   
-   console.log(issues)
+  
    
 
     async function fetchProfile (){
@@ -62,6 +63,11 @@ export function GitHubContextProvider({ children }: OrderContextProviderProps) {
     async function fetchIssues (){
       const response = await api.get('/repos/DanielSiilva/Github-Blog/issues')
       setIssues(response.data)
+    }
+
+    async function fetchIssuesId (id: number){
+      const response = await api.get('/repos/DanielSiilva/Github-Blog/issues/${id}')
+      setIssue(response.data)
     }
    
 
@@ -80,7 +86,8 @@ export function GitHubContextProvider({ children }: OrderContextProviderProps) {
         value={{
          profile,
          issue,
-         issues
+         issues,
+         fetchIssuesId
 
 
         }}
