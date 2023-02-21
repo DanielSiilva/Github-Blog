@@ -4,7 +4,6 @@ import styled from "styled-components";
 export const CardContainer = styled.div`
     display: flex;
    
-
     width: 26rem;
     height: 16.25rem;
     padding: 2rem;
@@ -25,7 +24,6 @@ export const TitleContainer = styled.div`
 
 export const Title = styled.div`
     display: flex;
-    gap: 1rem;
     align-items: center;
     justify-content: space-between;
 
@@ -48,9 +46,7 @@ export const Title = styled.div`
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
-        line-height: 160%;
-        white-space: nowrap;
-
+      
         color: ${props => props.theme['base-span']};
     }
 
@@ -58,19 +54,27 @@ export const Title = styled.div`
 
 export const Content = styled.div`
     display: flex;
-    align-items: center;
     flex-direction: column;
-    gap: 0px;
-
-    font-family: 'Nunito';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 160%;
 
     white-space: pre-wrap;
     overflow: hidden;
+
     
-    color: ${props => props.theme['base-text']};
+    
+    
+
+    p{
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;
+        text-align: justify;
+        
+        width: 98%;
+        
+        color: ${props => props.theme['base-text']};
+    }
 
 `
