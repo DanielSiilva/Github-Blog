@@ -1,3 +1,4 @@
+import { InputIssues } from "./components/InputIssues";
 import { Profile } from "./components/Profile";
 
 import {
@@ -12,6 +13,7 @@ export function Home (){
         <HomeContainer>
             <Profile />
 
+            <InputIssues />
             <div>
                 <h1> Conteudo</h1>
             </div>

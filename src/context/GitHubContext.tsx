@@ -43,11 +43,14 @@ interface Profile {
 }
 
 
+
+
   
 
   
 interface GitHubContextType {
-  profile: Profile
+  profile: Profile,
+  
 }
   
 export const GitHubContext = createContext({} as GitHubContextType)
@@ -60,8 +63,7 @@ interface OrderContextProviderProps {
   
 export function GitHubContextProvider({ children }: OrderContextProviderProps) {
    const [profile, setProfile] = useState<Profile>({} as Profile)
-
-   console.log(profile)
+   
   
    
 
@@ -72,6 +74,8 @@ export function GitHubContextProvider({ children }: OrderContextProviderProps) {
 
     }
 
+   
+
 
     useEffect(()=>{
       fetchProfile()
@@ -79,11 +83,12 @@ export function GitHubContextProvider({ children }: OrderContextProviderProps) {
 
     
     
+    
   return (
     <GitHubContext.Provider
         value={{
          profile,
-
+        
 
 
         }}
