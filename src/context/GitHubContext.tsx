@@ -47,7 +47,7 @@ interface Profile {
 
   
 interface GitHubContextType {
-  profile: Profile[]
+  profile: Profile
 }
   
 export const GitHubContext = createContext({} as GitHubContextType)
@@ -59,9 +59,11 @@ interface OrderContextProviderProps {
 
   
 export function GitHubContextProvider({ children }: OrderContextProviderProps) {
-   const [profile, setProfile] = useState<Profile[]>([])
-  
+   const [profile, setProfile] = useState<Profile>({} as Profile)
+
    console.log(profile)
+  
+   
 
     async function fetchProfile (){
       const response = await api.get('/users/DanielSiilva')
@@ -80,7 +82,10 @@ export function GitHubContextProvider({ children }: OrderContextProviderProps) {
   return (
     <GitHubContext.Provider
         value={{
-         profile
+         profile,
+
+
+
         }}
     >
         {children}
