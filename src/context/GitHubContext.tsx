@@ -8,41 +8,24 @@ import { api } from '../lib/axios';
 
 
 interface Profile {
-  login: string;
-  id: number;
-  node_id: string;
-  avatar_url: string;
-  gravatar_id: string;
-  url: string;
-  html_url: string;
-  followers_url: string;
-  following_url: string;
-  gists_url: string;
-  starred_url: string;
-  subscriptions_url: string;
-  organizations_url: string;
-  repos_url: string;
-  events_url: string;
-  received_events_url: string;
-  type: string;
-  site_admin: boolean;
-  name: string;
-  company?: any;
-  blog: string;
-  location?: any;
-  email?: any;
-  hireable: boolean;
-  bio: string;
-  twitter_username?: any;
-  public_repos: number;
-  public_gists: number;
-  followers: number;
-  following: number;
-  created_at: Date;
-  updated_at: Date;
+  name: string
+  followers: string
+  login: string
+  avatar_url: string
+  html_url: string
+  company: string
+  bio: string
 }
 
-
+interface Issue {
+  title: string
+  body: string
+  created_at: string
+  html_url: string
+  number: string
+  comments: string
+  login: string
+}
 
 
   
@@ -50,6 +33,8 @@ interface Profile {
   
 interface GitHubContextType {
   profile: Profile,
+  issue: Issue | undefined,
+  issues: Issue[]
   
 }
   
@@ -63,17 +48,21 @@ interface OrderContextProviderProps {
   
 export function GitHubContextProvider({ children }: OrderContextProviderProps) {
    const [profile, setProfile] = useState<Profile>({} as Profile)
-   
+   const [issue, setIssue] = useState<Issue | undefined>(undefined)
+   const [issues, setIssues] = useState<Issue[]>([])
   
+   console.log(issues)
    
 
     async function fetchProfile (){
       const response = await api.get('/users/DanielSiilva')
-
       setProfile(response.data)
-
     }
 
+    async function fetchIssues (){
+      const response = await api.get('/repos/DanielSiilva/Github-Blog/issues')
+      setIssues(response.data)
+    }
    
 
 
@@ -81,14 +70,17 @@ export function GitHubContextProvider({ children }: OrderContextProviderProps) {
       fetchProfile()
     }, [])
 
-    
+    useEffect(()=>{
+      fetchIssues()
+    }, [])
     
     
   return (
     <GitHubContext.Provider
         value={{
          profile,
-        
+         issue,
+         issues
 
 
         }}

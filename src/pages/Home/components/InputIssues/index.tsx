@@ -9,6 +9,8 @@ import {
     InformationPublications,
     Input
 } from './styles'
+import { useContext } from 'react'
+import { GitHubContext } from '../../../../context/GitHubContext'
 
 
 const searchFormSchema = z.object({
@@ -20,16 +22,22 @@ type SearchFormInputs = z.infer<typeof searchFormSchema>
 
 export function InputIssues (){
 
+    const {issues} = useContext(GitHubContext)
+    
+
 
     const {register, handleSubmit} = useForm<SearchFormInputs>({
         resolver: zodResolver(searchFormSchema)
     })
 
+
+    const IssueSize = issues.length
+
     return (
         <Container>
             <InformationPublications>
                 <p>Publicações</p>
-                <span> 6 publicações</span>
+                <span> {IssueSize} publicações</span>
             </InformationPublications>
 
             <Input>
