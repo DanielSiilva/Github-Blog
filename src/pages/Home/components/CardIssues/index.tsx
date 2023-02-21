@@ -1,5 +1,7 @@
 
 import ReactMarkdown from "react-markdown";
+import {dateFormatter} from '../../../../utils/dateFormatter'
+
 import { 
     CardContainer,
     Title,
@@ -29,9 +31,8 @@ export function CardIssues ({issue}: IssueProps){
     <CardContainer>
         <TitleContainer>
             <Title>
-                <h1> {issue.title}</h1>
-
-                <span> Há 1 dia</span>
+                <h1>{issue.title}</h1>
+                <span>{dateFormatter(issue.created_at)}</span>
             </Title>
 
             <Content>
