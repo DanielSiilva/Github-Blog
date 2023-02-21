@@ -14,7 +14,19 @@ import { ArrowSquareOut, CaretLeft } from 'phosphor-react'
 
 
 
-export function ProfileDetails(){
+interface Profile{
+    login: string
+    title: string
+    html_url : string
+    created_at: string
+    comments:string
+}
+
+interface ProfileProps{
+    profile: Profile
+}
+
+export function ProfileDetails({profile}: ProfileProps){
     
 
     return (
@@ -36,22 +48,22 @@ export function ProfileDetails(){
             </HeaderContainer>
 
             <PostDetails>
-                <h1>JavaScript data types and data structures</h1>
+                <h1>{profile.title}</h1>
 
                 <ProfileInformation>
                     <span>
                         <img src={github}/>
-                        cameronwll
+                        {profile.login}
                     </span>
 
                     <span>
                         <img src={data}/>
-                        Há 1 dia
+                        {profile.created_at}
                     </span>
 
                     <span>
                         <img src={comment}/>
-                        5 comentários
+                        {profile.comments} comentários
                     </span>
                 </ProfileInformation>
 

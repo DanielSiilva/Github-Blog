@@ -1,14 +1,17 @@
+
+import ReactMarkdown from 'react-markdown'
 import {Container} from './styles'
 
+interface ContentProps{
+    content:string
+}
 
-export function Content (){
+export function Content ({content}: ContentProps){
 
 
     return (
         <Container>
-            <p>
-                Programming languages all have built-in data structures, but these   often differ from one language to another. This article attempts to list the built-in data structures available in JavaScript and what properties they have. These can be used to build other data structures. Wherever possible, comparisons with other languages are drawn.
-            </p>
+           <ReactMarkdown children={content}/>
         </Container>
     )
 }

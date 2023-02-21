@@ -1,5 +1,6 @@
 
 import ReactMarkdown from "react-markdown";
+import { useNavigate } from "react-router-dom";
 import {dateFormatter} from '../../../../utils/dateFormatter'
 
 import { 
@@ -25,10 +26,13 @@ interface IssueProps {
 
 
 export function CardIssues ({issue}: IssueProps){
+    const navigate = useNavigate()
+
     
+    const handleGoToPost = () => navigate(`post/${issue.number}`)
         
   return(
-    <CardContainer>
+    <CardContainer onClick={handleGoToPost}>
         <TitleContainer>
             <Title>
                 <h1>{issue.title}</h1>
@@ -36,10 +40,7 @@ export function CardIssues ({issue}: IssueProps){
             </Title>
 
             <Content>
-                <p>
-                    <ReactMarkdown children={issue.body}/>
-                </p>
-                
+                <ReactMarkdown children={issue.body}/>
             </Content>
 
         </TitleContainer>

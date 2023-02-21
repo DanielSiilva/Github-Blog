@@ -12,6 +12,8 @@ export const CardContainer = styled.div`
     background: ${props => props.theme['base-post']};
     border-radius: 10px;
 
+    cursor: pointer;
+
 `
 
 export const TitleContainer = styled.div`
