@@ -13,6 +13,7 @@ import {NavLink} from 'react-router-dom'
 import { ArrowSquareOut, CaretLeft } from 'phosphor-react'
 
 
+
 export function ProfileDetails(){
     
 
@@ -54,6 +55,7 @@ export function ProfileDetails(){
                     </span>
                 </ProfileInformation>
 
+                
             </PostDetails>
         </ProfileContainer>
     )
