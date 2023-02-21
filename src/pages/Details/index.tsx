@@ -1,4 +1,9 @@
+import { ProfileDetails } from './components/ProfileDetails'
 
+
+import {
+    Container
+} from './styles'
 
 
 
@@ -6,8 +11,8 @@ export function Details (){
 
 
     return(
-        <>
-            <h1> Detalhe do cart</h1>
-        </>
+        <Container>
+            <ProfileDetails />
+        </Container>
     )
 }
