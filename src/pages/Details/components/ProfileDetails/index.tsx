@@ -11,6 +11,9 @@ import comment from '../../../../assets/comment.svg'
 
 import {NavLink} from 'react-router-dom'
 import { ArrowSquareOut, CaretLeft } from 'phosphor-react'
+import { useContext } from 'react'
+import { GitHubContext } from '../../../../context/GitHubContext'
+import {dateFormatter} from '../../../../utils/dateFormatter'
 
 interface Details{
     title: string, 
@@ -27,8 +30,9 @@ interface DetailsProps{
 
 
 export function ProfileDetails({details}:DetailsProps){
+    const {profile} = useContext(GitHubContext)
     
-
+    const date = dateFormatter(details.created_at)
     return (
         <ProfileContainer>
             <HeaderContainer>
@@ -39,7 +43,7 @@ export function ProfileDetails({details}:DetailsProps){
                     </a>
                 </NavLink>
 
-                <NavLink to={''}>
+                <NavLink to={details.html_url}>
                     <a> 
                         ver no github
                         <ArrowSquareOut size={15} weight='bold' />
@@ -51,17 +55,21 @@ export function ProfileDetails({details}:DetailsProps){
                 <h1>{details.title}</h1>
 
                 <ProfileInformation>
-                    <span>
-                        
-                    </span>
+                    <p>
+                        <img src={github} />
+                        {profile.login}
+                    </p>
 
-                    <span>
-                        
-                    </span>
+                    <p>
+                        <img src={data} />
+                        {date}
+                    </p>
 
-                    <span>
-                        
-                    </span>
+                    <p>
+                        <img src={comment} />
+                        {details.comments}
+                        <span> comentários</span>
+                    </p>
                 </ProfileInformation>
 
                 

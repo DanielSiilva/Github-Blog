@@ -83,7 +83,7 @@ export const ProfileInformation = styled.div`
     top: 110px;
 
     
-    span{
+    p{
         display: flex;
         align-items: center;
         gap: 0.5rem;
@@ -100,8 +100,8 @@ export const ProfileInformation = styled.div`
         color: ${props => props.theme['base-span']};
 
         img{
-            width: 15px;
-            height: 15px;
+            width: 18px;
+            height: 18px;
         }
     }
 
