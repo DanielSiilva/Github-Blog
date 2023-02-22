@@ -28,11 +28,14 @@ interface IssueProps {
 export function CardIssues ({issue}: IssueProps){
     const navigate = useNavigate()
 
+    function handleGotoPost(){
+        navigate(`post/${issue.number}`)
+    }
     
     
         
   return(
-    <CardContainer>
+    <CardContainer onClick={handleGotoPost}>
         <TitleContainer>
             <Title>
                 <h1>{issue.title}</h1>

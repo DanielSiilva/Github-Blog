@@ -13,7 +13,7 @@ export function Router (){
         <Routes>
             <Route path="/" element ={<DefaultLayout/>}>
                 <Route  path="/" element ={<Home/>} />
-                <Route path="/post/id"  element={<Details/>}/>
+                <Route path="/post/:id"  element={<Details/>}/>
             </Route>
 
         </Routes>

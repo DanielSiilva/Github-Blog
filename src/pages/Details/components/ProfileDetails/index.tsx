@@ -12,11 +12,21 @@ import comment from '../../../../assets/comment.svg'
 import {NavLink} from 'react-router-dom'
 import { ArrowSquareOut, CaretLeft } from 'phosphor-react'
 
+interface Details{
+    title: string, 
+    html_url:string,
+    created_at:string,
+    comments:string
+}
+
+
+interface DetailsProps{
+    details: Details
+}
 
 
 
-
-export function ProfileDetails(){
+export function ProfileDetails({details}:DetailsProps){
     
 
     return (
@@ -29,7 +39,7 @@ export function ProfileDetails(){
                     </a>
                 </NavLink>
 
-                <NavLink to={'/'}>
+                <NavLink to={''}>
                     <a> 
                         ver no github
                         <ArrowSquareOut size={15} weight='bold' />
@@ -38,7 +48,7 @@ export function ProfileDetails(){
             </HeaderContainer>
 
             <PostDetails>
-                <h1>titulo</h1>
+                <h1>{details.title}</h1>
 
                 <ProfileInformation>
                     <span>
