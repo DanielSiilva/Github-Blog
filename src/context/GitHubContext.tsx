@@ -35,7 +35,7 @@ interface GitHubContextType {
   profile: Profile,
   issue: Issue | undefined,
   issues: Issue[],
-  fetchIssuesId: (id: string) => Promise<void>
+ 
   
 }
   
@@ -65,10 +65,10 @@ export function GitHubContextProvider({ children }: OrderContextProviderProps) {
       setIssues(response.data)
     }
 
-    async function fetchIssuesId (id: string){
-      const response = await api.get(`/repos/DanielSiilva/Github-Blog/issues/${id}`)
-      setIssue(response.data)
-    }
+    // async function fetchIssuesId (id: string){
+    //   const response = await api.get(`/repos/DanielSiilva/Github-Blog/issues/${id}`)
+    //   setIssue(response.data)
+    // }
    
 
 
@@ -87,7 +87,6 @@ export function GitHubContextProvider({ children }: OrderContextProviderProps) {
          profile,
          issue,
          issues,
-         fetchIssuesId
 
 
         }}
