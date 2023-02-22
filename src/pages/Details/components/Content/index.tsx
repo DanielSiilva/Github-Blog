@@ -11,7 +11,7 @@ export function Content ({body}:DetailsContent){
 
     return (
         <Container>
-           <ReactMarkdown children={body}/>
+            <ReactMarkdown children={body}/>
         </Container>
     )
 }
