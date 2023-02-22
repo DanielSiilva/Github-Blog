@@ -33,22 +33,19 @@ export function ProfileDetails({details}:DetailsProps){
     const {profile} = useContext(GitHubContext)
     
     const date = dateFormatter(details.created_at)
+
     return (
         <ProfileContainer>
             <HeaderContainer>
-                <NavLink to={'/'}>
-                    <a> 
+                    <a href='/'> 
                         <CaretLeft size={15} weight='bold' />
                         voltar
                     </a>
-                </NavLink>
-
-                <NavLink to={details.html_url}>
-                    <a> 
+                
+                    <a href={details.html_url}> 
                         ver no github
                         <ArrowSquareOut size={15} weight='bold' />
-                    </a>
-                </NavLink>
+                    </a>      
             </HeaderContainer>
 
             <PostDetails>
