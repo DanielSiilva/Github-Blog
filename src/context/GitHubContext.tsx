@@ -1,6 +1,7 @@
 import {
     createContext,
     ReactNode,
+    useCallback,
     useEffect,
     useState,
 } from 'react'
@@ -35,8 +36,8 @@ interface GitHubContextType {
   profile: Profile,
   issue: Issue | undefined,
   issues: Issue[],
-  fetchIssuesId: (id:string) => Promise<void>
- 
+  fetchIssuesId: (id:string) => Promise<void>,
+  fetchSearchIssues: (query:string) => Promise<void>,
   
 }
   
@@ -54,8 +55,6 @@ export function GitHubContextProvider({ children }: OrderContextProviderProps) {
    const [issues, setIssues] = useState<Issue[]>([])
   
   
-   
-
     async function fetchProfile (){
       const response = await api.get('/users/DanielSiilva')
       setProfile(response.data)
@@ -70,7 +69,11 @@ export function GitHubContextProvider({ children }: OrderContextProviderProps) {
       const response = await api.get(`/repos/DanielSiilva/Github-Blog/issues/${id}`)
       setIssue(response.data)
     }
-   
+
+    async function fetchSearchIssues (query: string){
+      const response = await api.get(`search/issues?q=${query}%20repo:DanielSiilva/Github-Blog`)
+      setIssues(response.data.items)
+    }
 
 
     useEffect(()=>{
@@ -88,7 +91,8 @@ export function GitHubContextProvider({ children }: OrderContextProviderProps) {
          profile,
          issue,
          issues,
-         fetchIssuesId
+         fetchIssuesId,
+         fetchSearchIssues
 
         }}
     >
