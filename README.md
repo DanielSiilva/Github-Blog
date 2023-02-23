@@ -41,10 +41,10 @@ Antes de começar :checkered_flag:, você precisa ter o [Git](https://git-scm.co
 
 ```bash
 # Clone este repositório
-$ git clone https://github.com/DanielSiilva/ignite-coffe.git
+$ git clone https://github.com/DanielSiilva/Github-Blog.git
 
 # Entre na pasta
-$ cd ignite-coffe
+$ cd Github-Blog
 
 # Instale as dependências
 $ npm i
@@ -88,4 +88,5 @@ $ npm run dev
    <li>✅ React-hook-form</li>
    <li>✅ Zod</li>
    <li>✅ React-router-dom</li>
+   <li>✅ Axios</li>
  </ul>
